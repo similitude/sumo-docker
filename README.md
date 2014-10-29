@@ -8,7 +8,9 @@ A Docker base image for the SUMO traffic simulation package.
 > large road networks.
 
 See also:
+
 * [SUMO Wiki](http://sumo.dlr.de/wiki/Main_Page)
 * [SUMO on SourceForge](http://sourceforge.net/projects/sumo/)
+* [SUMO Simmer package](https://github.com/similitude/sumo-simmer)
 * More information about [Docker](https://www.docker.com/)
 
