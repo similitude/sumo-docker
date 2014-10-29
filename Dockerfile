@@ -17,10 +17,10 @@ RUN apt-get update && apt-get install -qq \
     python
 
 # Download and extract the source code.
-RUN wget http://downloads.sourceforge.net/project/sumo/sumo/version%20$SUMO_VERSION/$SUMO_SRC.tar.gz && \
-    tar xzf $SUMO_SRC.tar.gz && \
-    mv $SUMO_SRC $SUMO_HOME && \
-    rm $SUMO_SRC.tar.gz
+RUN wget http://downloads.sourceforge.net/project/sumo/sumo/version%20$SUMO_VERSION/sumo-src-$SUMO_VERSION.tar.gz
+RUN tar xzf sumo-src-$SUMO_VERSION.tar.gz && \
+    mv sumo-$SUMO_VERSION $SUMO_HOME && \
+    rm sumo-src-$SUMO_VERSION.tar.gz
 
 # Configure and build from source.
 RUN cd $SUMO_HOME && ./configure && make install
