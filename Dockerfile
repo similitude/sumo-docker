@@ -28,3 +28,7 @@ RUN cd $SUMO_HOME && ./configure && make install
 # Ensure the installation works. If this call fails, the whole build will fail.
 RUN sumo
 
+ENTRYPOINT ["sumo"]
+
+CMD ["--help"]
+
