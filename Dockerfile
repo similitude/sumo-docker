@@ -28,6 +28,10 @@ RUN cd $SUMO_HOME && ./configure && make install
 # Ensure the installation works. If this call fails, the whole build will fail.
 RUN sumo
 
+# Add volume to allow for host data to be used
+RUN mkdir /data
+VOLUME /data
+
 ENTRYPOINT ["sumo"]
 
 CMD ["--help"]
