@@ -10,7 +10,7 @@ A Docker base image for the SUMO traffic simulation package.
 Run with Docker
 -------------
 ```
-docker run --rm -t -i -v /some/local/path/to/your/data:/data farberg/sumo-docker
+docker run --rm -t -i -p 1234:1234 -v /some/local/path/to/your/data:/data farberg/sumo-docker
 ```
 
 (This uses an automated build on Dockerhub: https://hub.docker.com/r/farberg/sumo-docker/).
