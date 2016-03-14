@@ -35,7 +35,9 @@ RUN git clone https://github.com/egueli/TraCI4J.git /opt/traci4j && mvn package 
 RUN mkdir /data
 VOLUME /data
 
+# Expose a port so that SUMO can be started with --remote-port 1234 to be controlled from outside Docker
 EXPOSE 1234
+
 ENTRYPOINT ["sumo"]
 
 CMD ["--help"]

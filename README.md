@@ -7,6 +7,14 @@ A Docker base image for the SUMO traffic simulation package.
 > microscopic and continuous road traffic simulation package designed to handle
 > large road networks.
 
+Run with Docker
+-------------
+```
+docker run --rm -t -i -v /some/local/path/to/your/data:/data farberg/sumo-docker
+```
+
+(This uses an automated build on Dockerhub: https://hub.docker.com/r/farberg/sumo-docker/).
+
 See also:
 
 * [SUMO Wiki](http://sumo.dlr.de/wiki/Main_Page)
