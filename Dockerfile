@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -qq \
     make \
     libxerces-c3.1 \
     libxerces-c3-dev \
-    python
+    python \
+    libproj-dev \
+    proj-bin
 
 # Download and extract source code
 RUN wget http://downloads.sourceforge.net/project/sumo/sumo/version%20$SUMO_VERSION/sumo-src-$SUMO_VERSION.tar.gz
