@@ -21,8 +21,14 @@ Control SUMO via TraCi
 
 Use the following command if you want to control SUMO using the [Traffic Control Interface ](TraCI). This exposes SUMO's features on port 1234 via TCP/IP:
 ```
-docker run -t -i --rm -p 1234:1234 -v /some/local/path/to/your/data:/data farberg/sumo-docker -c /data/cologne.sumocfg --remote-port 1234 -v
+docker run -t -i --rm -p 1234:1234 \
+	-v /some/local/path/to/your/data:/data \
+	farberg/sumo-docker \
+	-c /data/cologne.sumocfg \
+	--remote-port 1234 \
+	-v
 ```
+(remove all \ in the previous example if you use a single line instead of multiple lines)
 
 Java API for TraCI
 -------------
