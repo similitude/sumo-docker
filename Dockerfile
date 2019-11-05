@@ -1,6 +1,6 @@
 FROM maven:3
 
-ENV SUMO_VERSION 0.25.0
+ENV SUMO_VERSION 1.3.1
 ENV SUMO_SRC sumo-src-$SUMO_VERSION
 ENV SUMO_HOME /opt/sumo
 
@@ -8,19 +8,26 @@ ENV SUMO_HOME /opt/sumo
 RUN apt-get update && apt-get install -qq \
     wget \
     g++ \
-    make \
+    cmake \
     libxerces-c3.1 \
-    libxerces-c3-dev \
+    libxerces-c-dev \
+    libgdal-dev \
+    libproj-dev \
+    libfox-1.6-dev\
+    libgl2ps-dev\ 
+    swig\
     python
 
 # Download and extract source code
-RUN wget http://downloads.sourceforge.net/project/sumo/sumo/version%20$SUMO_VERSION/sumo-src-$SUMO_VERSION.tar.gz
+RUN wget https://sumo.dlr.de/releases/$SUMO_VERSION/sumo-src-$SUMO_VERSION.tar.gz
 RUN tar xzf sumo-src-$SUMO_VERSION.tar.gz && \
     mv sumo-$SUMO_VERSION $SUMO_HOME && \
     rm sumo-src-$SUMO_VERSION.tar.gz
 
 # Configure and build from source.
-RUN cd $SUMO_HOME && ./configure && make install
+RUN cd $SUMO_HOME && mkdir build/cmake-build && \ 
+    cd build/cmake-build && cmake ../.. && make -j $(nproc) && \
+    make install
 
 # Ensure the installation works. If this call fails, the whole build will fail.
 RUN sumo
@@ -41,4 +48,3 @@ EXPOSE 1234
 ENTRYPOINT ["sumo"]
 
 CMD ["--help"]
-
