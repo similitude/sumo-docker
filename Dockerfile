@@ -36,7 +36,8 @@ RUN sumo
 RUN apt-get install -qq -y ssh-client git
 RUN mkdir -p /opt/traci4j 
 WORKDIR /opt/traci4j
-RUN git clone https://github.com/egueli/TraCI4J.git /opt/traci4j && mvn package -Dmaven.test.skip=true
+RUN git clone https://github.com/egueli/TraCI4J.git /opt/traci4j
+RUN mvn package -f pom.xml -Dmaven.test.skip=true -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
 
 # Add volume to allow for host data to be used
 RUN mkdir /data
